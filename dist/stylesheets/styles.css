@@ -1,0 +1,174 @@
+body {
+	width: 100%;
+	margin: 0px;
+}
+
+div #container {
+	max-width: 100%;
+	margin: 0 auto;
+}
+.modal {
+	overlay : {
+		position          : 'fixed',
+		top               : 0,
+		left              : 0,
+		right             : 0,
+		bottom            : 0,
+		backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+	},
+	content : {
+		position                   : 'absolute',
+		top                        : '40px',
+		left                       : '40px',
+		right                      : '40px',
+		bottom                     : '40px',
+		border                     : '1px solid #ccc',
+		background                 : '#fff',
+		overflow                   : 'auto',
+		WebkitOverflowScrolling    : 'touch',
+		borderRadius               : '4px',
+		outline                    : 'none',
+		padding                    : '20px'
+	},
+}
+div #lightboxFrame {
+    column-count:             5;
+        -moz-column-count:    5;
+        -ms-column-count:     5;
+        -o-column-count:      5;
+        -webkit-column-count: 5;
+    column-fill:              balance;
+        -moz-column-fill:     balance;
+        -ms-column-fill:      balance;
+        -o-column-fill:       balance;
+        -webkit-column-fill:  balance;
+    column-gap:               10px;
+        -moz-column-gap:      10px;
+        -ms-column-gap:       10px;
+        -o-column-gap:        10px;
+        -webkit-column-gap:   10px;
+    max-width: 1080px;
+		max-height: 100000px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+}
+div .lightbox {
+	max-width: 210px;
+	padding: 5px;
+	margin: 5px;
+	border: 1px #ccc solid;
+	float: left;
+	display: block;
+}
+div .lightbox img {
+	float: left;
+}
+@media (max-width: 1080px) {
+	div #lightboxFrame {
+	    column-count:             5;
+	        -moz-column-count:    5;
+	        -ms-column-count:     5;
+	        -o-column-count:      5;
+	        -webkit-column-count: 5;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 100000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 870px) {
+	div #lightboxFrame {
+	    column-count:             4;
+	        -moz-column-count:    4;
+	        -ms-column-count:     4;
+	        -o-column-count:      4;
+	        -webkit-column-count: 4;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 200000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 660px) {
+	div #lightboxFrame {
+	    column-count:             3;
+	        -moz-column-count:    3;
+	        -ms-column-count:     3;
+	        -o-column-count:      3;
+	        -webkit-column-count: 3;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 450px) {
+	div #lightboxFrame {
+	    column-count:             2;
+	        -moz-column-count:    2;
+	        -ms-column-count:     2;
+	        -o-column-count:      2;
+	        -webkit-column-count: 2;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+	}
+}
+@media (max-width: 240px) {
+	div #lightboxFrame {
+	    column-count:             1;
+	        -moz-column-count:    1;
+	        -ms-column-count:     1;
+	        -o-column-count:      1;
+	        -webkit-column-count: 1;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+
+	}
+}
