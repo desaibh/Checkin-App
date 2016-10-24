@@ -18,7 +18,7 @@ class App extends React.Component {
       login: false,
       open: false,
     }
-    this.openModal = this.openModal.bind(this, e);
+    this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
@@ -101,7 +101,7 @@ class App extends React.Component {
         <div>
         <button onClick={this.openModal}>LOGIN</button>
         <button onClick={this.openModal}>SIGNUP</button>
-        <p>{this.state.buttonText}</p>>
+        <p>{this.state.buttonText}</p>
         <Modal isOpen={this.state.open} onRequestClose={this.closeModal}>
         <h1>{this.state.buttonText}</h1>
         <button onClick={this.closeModal}>Close</button>
@@ -125,10 +125,10 @@ class App extends React.Component {
     }
     return (
       <div>
-      <div id="container">
-        {userDisplayElement}
-        <Main />
-      </div>
+        <div id="container">
+          {userDisplayElement}
+          <Main />
+        </div>
       </div>
     );
   }
