@@ -26310,20 +26310,19 @@
 	      var starRating = parseInt(this.props.rating);
 	      var starImg = '🌟';
 	      var starArray = [];
-	      for (var i in starRating) {
-	        starArray.push(starImg);
-	      }
-	      var starCount = 'Rating: ' + starImg * starRating;
-	      this.setState({
-	        stars: starArray.toString()
-	      });
+	      // for (let i in starRating) {
+	      //   starArray.push(starImg);
+	      // }
+	      // let starCount = 'Rating: ' + starImg * starRating;
+	      // this.setState ({
+	      //   stars: starArray.toString(),
+	      // })
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var placeString = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=' + this.props.photo + '&key=AIzaSyDts0hONvRHnVicP9UBOaHv0Fu4bs2PEMc';
 	      var placeLink = 'https://www.google.com/search?q=google+places+API&oq=google+places&ie=UTF-8#q=' + this.props.place + '&tbs=lf:1,lf_ui:2,lf_pqs:EAE&rflfq=1&rlha=0&rllag=' + this.props.latitude + ',' + this.props.longitude + ',1170&tbm=lcl';
-	      this.makeAstar;
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -26345,8 +26344,7 @@
 	              ),
 	              _react2.default.createElement('br', null),
 	              this.props.locale,
-	              _react2.default.createElement('br', null),
-	              this.props.rating ? this.state.stars : false
+	              _react2.default.createElement('br', null)
 	            ),
 	            ' '
 	          )

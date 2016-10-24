@@ -48,9 +48,10 @@ div #lightboxFrame {
         -o-column-gap:        10px;
         -webkit-column-gap:   10px;
     max-width: 1080px;
-		max-height: 100000px;
-		overflow-x: hidden;
+		min-height: 100000px;
+		overflow-x: scroll;
 		overflow-y: scroll;
+		display: block;
 }
 div .lightbox {
 	max-width: 210px;
@@ -62,8 +63,10 @@ div .lightbox {
 }
 div .lightbox img {
 	float: left;
+	display: block;
+	height: 100%
 }
-@media (max-width: 1080px) {
+/*@media (max-width: 1080px) {
 	div #lightboxFrame {
 	    column-count:             5;
 	        -moz-column-count:    5;
@@ -81,7 +84,7 @@ div .lightbox img {
 	        -o-column-gap:        10px;
 	        -webkit-column-gap:   10px;
 	    max-width: 1080px;
-			max-height: 100000px;
+			height: 100000px;
 			overflow: hidden;
 	}
 }
@@ -103,8 +106,8 @@ div .lightbox img {
 	        -o-column-gap:        10px;
 	        -webkit-column-gap:   10px;
 	    max-width: 1080px;
-			max-height: 200000px;
-			overflow: hidden;
+			height: 200000px;
+			overflow: auto;
 	}
 }
 @media (max-width: 660px) {
@@ -125,8 +128,8 @@ div .lightbox img {
 	        -o-column-gap:        10px;
 	        -webkit-column-gap:   10px;
 	    max-width: 1080px;
-			max-height: 400000px;
-			overflow: hidden;
+			height: 400000px;
+			overflow: auto;
 	}
 }
 @media (max-width: 450px) {
@@ -147,7 +150,7 @@ div .lightbox img {
 	        -o-column-gap:        10px;
 	        -webkit-column-gap:   10px;
 	    max-width: 1080px;
-			max-height: 400000px;
+			height: 400000px;
 	}
 }
 @media (max-width: 240px) {
@@ -168,7 +171,7 @@ div .lightbox img {
 	        -o-column-gap:        10px;
 	        -webkit-column-gap:   10px;
 	    max-width: 1080px;
-			max-height: 400000px;
+			height: 400000px;
 
 	}
-}
+}*/
