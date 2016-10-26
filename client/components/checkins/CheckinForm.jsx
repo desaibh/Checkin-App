@@ -7,35 +7,40 @@ const propTypes = {
 class CheckinForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: '' };
+    this.state = {
+      target: '',
+      submitted: false
+     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentDidMount() {
+    this.setState({ submitted: false });
+  }
   handleInputChange(e) {
-    const target = e.target;
-    const name = target.getAttribute('name');
-    const value = target.value;
-    const updated = {};
-    updated[name] = value;
-    this.setState(updated);
+    const target = e.target.value;
+    this.setState({ target: target });
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.sendCheckin(this.state);
+    this.props.sendCheckin(this.state.target);
+    this.setState({ submitted: true });
+
   }
   render() {
     return (
       <div>
+        {this.state.submitted  ? false :
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="body"
             value={this.state.body}
-            placeholder="checkin..."
+            placeholder="Add a note to your checkin..."
             onChange={this.handleInputChange}
           />
-          <input type="submit" value="CHECKIN" />
-        </form>
+          <input type="submit" value="CHECKIN" className="formSubmit" />
+        </form>}
       </div>
     );
   }

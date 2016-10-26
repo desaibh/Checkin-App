@@ -2,9 +2,8 @@ import React from 'react';
 import request from 'superagent';
 import cookie from 'react-cookie';
 import Modal from 'react-modal';
-import UserForm from './users//UserForm.jsx';
-import CheckinList from './checkins/CheckinList.jsx';
-import CheckinForm from './checkins/CheckinForm.jsx';
+import UserForm from './users/UserForm.jsx';
+import MyAccountRequests from './users/MyAccountRequests.jsx'
 import Main from './homepage/Main.jsx'
 
 const propTypes = {};
@@ -13,40 +12,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkins: [],
       buttonText: '',
       login: false,
       open: false,
+      hereiam: false,
+      viewAcct: false,
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.logIn = this.logIn.bind(this);
     this.signUp = this.signUp.bind(this);
     this.signOut = this.signOut.bind(this);
-    this.sendCheckin = this.sendCheckin.bind(this);
+    this.myCheckin = this.myCheckin.bind(this);
+    this.myAccount = this.myAccount.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
-    if (cookie.load('token')) {
-      this.getCurrentUserCheckins();
-    }
-  }
-  getCurrentUserCheckins() {
-    request.get('/api/checkins')
-           .then((response) => {
-             const checkins = response.body;
-             this.setState({ checkins });
-           })
-           .catch(() => {
-             this.updateAuth();
-           });
-  }
-  sendCheckin({ body }) {
-    request.post('/api/checkins')
-           .send({ body })
-           .then(() => {
-             this.getCurrentUserCheckins();
-           });
+    this.setState({
+      hereiam: false,
+    });
   }
   updateAuth() {
     this.setState({
@@ -58,7 +42,6 @@ class App extends React.Component {
           .send(userDetails)
          .then(() => {
            this.updateAuth();
-           this.getCurrentUserCheckins();
          });
   }
   signUp(userDetails) {
@@ -66,24 +49,36 @@ class App extends React.Component {
           .send(userDetails)
           .then(() => {
             this.updateAuth();
-            this.getCurrentUserCheckins();
           });
   }
   signOut() {
     request.post('/api/signout')
            .then(() => this.updateAuth());
+    this.closeModal();
+  }
+  myCheckin() {
+    this.setState({
+      hereiam: true,
+    })
+  }
+  myAccount() {
+    this.setState({
+      viewAcct: true,
+    })
   }
   openModal(e) {
     let register = e.target.value;
-    console.log(register)
     this.setState({
       open: true,
-      buttonText: register
+      buttonText: register,
+      hereiam: false,
     });
   }
   closeModal() {
     this.setState({
-      open: false
+      open: false,
+      hereiam: false,
+      viewAcct: false,
     });
   }
   render() {
@@ -91,34 +86,40 @@ class App extends React.Component {
     if (this.state.token) {
       userDisplayElement = (
         <div>
-            <button onClick={this.signOut} >Log-Out!</button>
-            <CheckinForm sendCheckin={this.sendCheckin} />
-            <CheckinList checkins={this.state.checkins} />
+          <div id="registration-links">
+            <button onClick={this.myAccount}>MY ACCOUNT</button>
+            {this.state.viewAcct ?
+              false :
+              <button onClick={this.myCheckin}>CHECKIN</button>
+            }
+            <button onClick={this.signOut} >LOG OUT</button>
+          </div>
+          {/* {this.state.hereiam ? <Checkin updateAuth={this.updateAuth} /> : false } */}
         </div>
       );
     } else {
       userDisplayElement = (
         <div>
-        <button onClick={this.openModal}>LOGIN</button>
-        <button onClick={this.openModal}>SIGNUP</button>
-        <p>{this.state.buttonText}</p>
-        <Modal isOpen={this.state.open} onRequestClose={this.closeModal}>
-        <h1>{this.state.buttonText}</h1>
-        <button onClick={this.closeModal}>Close</button>
-
-            {(this.state.buttonText=="LOGIN") ?
-              <UserForm
-                closeModal={this.closeModal}
-                handleSubmit={this.logIn}
-                buttonText={"LOGIN"}
-              /> : false }
-            {(this.state.buttonText=="SIGNUP") ?
-              <UserForm
-                closeModal={this.closeModal}
-                handleSubmit={this.signUp}
-                buttonText={"SIGNUP"}
-              /> : false
-            }
+          <div id="registration-links">
+            <button onClick={this.openModal} value="LOGIN">LOGIN</button>
+            <button onClick={this.openModal} value="SIGNUP">SIGNUP</button>
+          </div>
+          <Modal isOpen={this.state.open} onRequestClose={this.closeModal}>
+          <h1>{this.state.buttonText}</h1>
+              {(this.state.buttonText=="LOGIN") ?
+                <UserForm
+                  closeModal={this.closeModal}
+                  handleSubmit={this.logIn}
+                  buttonText={"LOGIN"}
+                /> : false }
+              {(this.state.buttonText=="SIGNUP") ?
+                <UserForm
+                  closeModal={this.closeModal}
+                  handleSubmit={this.signUp}
+                  buttonText={"SIGNUP"}
+                /> : false
+              }
+            <button onClick={this.closeModal} id="closeButton">CLOSE</button>
          </Modal>
         </div>
       );
@@ -127,7 +128,14 @@ class App extends React.Component {
       <div>
         <div id="container">
           {userDisplayElement}
-          <Main />
+          {this.state.viewAcct ?
+          <MyAccountRequests
+            updateAuth={this.updateAuth}
+          /> :
+          <Main
+            hereiam={this.state.hereiam}
+            updateAuth={this.updateAuth}
+          />}
         </div>
       </div>
     );

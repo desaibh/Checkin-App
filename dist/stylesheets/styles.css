@@ -1,11 +1,7 @@
 body {
 	width: 100%;
 	margin: 0px;
-}
-
-div #container {
-	max-width: 100%;
-	margin: 0 auto;
+	color: #666699;
 }
 .modal {
 	overlay : {
@@ -48,7 +44,7 @@ div #lightboxFrame {
         -o-column-gap:        10px;
         -webkit-column-gap:   10px;
     max-width: 1080px;
-		min-height: 100000px;
+		min-height: 1080px;
 		overflow-x: scroll;
 		overflow-y: scroll;
 		display: block;
@@ -66,112 +62,61 @@ div .lightbox img {
 	display: block;
 	height: 100%
 }
-/*@media (max-width: 1080px) {
-	div #lightboxFrame {
-	    column-count:             5;
-	        -moz-column-count:    5;
-	        -ms-column-count:     5;
-	        -o-column-count:      5;
-	        -webkit-column-count: 5;
-	    column-fill:              balance;
-	        -moz-column-fill:     balance;
-	        -ms-column-fill:      balance;
-	        -o-column-fill:       balance;
-	        -webkit-column-fill:  balance;
-	    column-gap:               10px;
-	        -moz-column-gap:      10px;
-	        -ms-column-gap:       10px;
-	        -o-column-gap:        10px;
-	        -webkit-column-gap:   10px;
-	    max-width: 1080px;
-			height: 100000px;
-			overflow: hidden;
-	}
+div #container {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
 }
-@media (max-width: 870px) {
-	div #lightboxFrame {
-	    column-count:             4;
-	        -moz-column-count:    4;
-	        -ms-column-count:     4;
-	        -o-column-count:      4;
-	        -webkit-column-count: 4;
-	    column-fill:              balance;
-	        -moz-column-fill:     balance;
-	        -ms-column-fill:      balance;
-	        -o-column-fill:       balance;
-	        -webkit-column-fill:  balance;
-	    column-gap:               10px;
-	        -moz-column-gap:      10px;
-	        -ms-column-gap:       10px;
-	        -o-column-gap:        10px;
-	        -webkit-column-gap:   10px;
-	    max-width: 1080px;
-			height: 200000px;
-			overflow: auto;
-	}
+input[type="text"], input[type="password"], input[type="number"] {
+  display: inline-block;
+  width: 60%;
+  margin: .5% 1%;
+  float: left;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 25px;
+			  -moz-border-radius: 25px;
+			  -webkit-border-radius: 25px;
+  padding: 10px;
+  border: solid 5px #dcdcdc;
+  text-align: center;
+	background-color: white;
 }
-@media (max-width: 660px) {
-	div #lightboxFrame {
-	    column-count:             3;
-	        -moz-column-count:    3;
-	        -ms-column-count:     3;
-	        -o-column-count:      3;
-	        -webkit-column-count: 3;
-	    column-fill:              balance;
-	        -moz-column-fill:     balance;
-	        -ms-column-fill:      balance;
-	        -o-column-fill:       balance;
-	        -webkit-column-fill:  balance;
-	    column-gap:               10px;
-	        -moz-column-gap:      10px;
-	        -ms-column-gap:       10px;
-	        -o-column-gap:        10px;
-	        -webkit-column-gap:   10px;
-	    max-width: 1080px;
-			height: 400000px;
-			overflow: auto;
-	}
+.formSubmit {
+	background-color: #666699;
+	color: white;
+	font-size: 18px;
+	margin: .5% 1%;
+	height: 50px;
+	width: 140px;
+	float: none;
+	border-radius: 25px;
+				-moz-border-radius: 25px;
+				-webkit-border-radius: 25px;
 }
-@media (max-width: 450px) {
-	div #lightboxFrame {
-	    column-count:             2;
-	        -moz-column-count:    2;
-	        -ms-column-count:     2;
-	        -o-column-count:      2;
-	        -webkit-column-count: 2;
-	    column-fill:              balance;
-	        -moz-column-fill:     balance;
-	        -ms-column-fill:      balance;
-	        -o-column-fill:       balance;
-	        -webkit-column-fill:  balance;
-	    column-gap:               10px;
-	        -moz-column-gap:      10px;
-	        -ms-column-gap:       10px;
-	        -o-column-gap:        10px;
-	        -webkit-column-gap:   10px;
-	    max-width: 1080px;
-			height: 400000px;
-	}
+button {
+ 	background-color: white;
+  border-radius: 4px;
+	 -webkit-border-radius: 4px;
+	 -moz-border-radius: 4px;
+	border: solid 1px #666699;
+	color: #666699;
+	width: 20%;
+	margin: .5% 1%;
 }
-@media (max-width: 240px) {
-	div #lightboxFrame {
-	    column-count:             1;
-	        -moz-column-count:    1;
-	        -ms-column-count:     1;
-	        -o-column-count:      1;
-	        -webkit-column-count: 1;
-	    column-fill:              balance;
-	        -moz-column-fill:     balance;
-	        -ms-column-fill:      balance;
-	        -o-column-fill:       balance;
-	        -webkit-column-fill:  balance;
-	    column-gap:               10px;
-	        -moz-column-gap:      10px;
-	        -ms-column-gap:       10px;
-	        -o-column-gap:        10px;
-	        -webkit-column-gap:   10px;
-	    max-width: 1080px;
-			height: 400000px;
-
-	}
-}*/
+#registration-links {
+	position: absolute;
+	width: 100%;
+	max-width: 900px;
+	max-height: 20px;
+	background-color: white;
+	text-align: right;
+}
+#closeButton {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+h1, #checkinForm {
+	padding-top: 50px;
+}

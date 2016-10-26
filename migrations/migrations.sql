@@ -14,6 +14,9 @@ CREATE TABLE users (
 
 CREATE TABLE checkins (
   id SERIAL PRIMARY KEY,
+  note VARCHAR NOT NULL,
   latitude VARCHAR NOT NULL,
-  longitude VARCHAR NOT NULL
+  longitude VARCHAR NOT NULL,
+  streetaddress VARCHAR(555) NOT NULL,
+  user_id INTEGER REFERENCES users (id)
 );

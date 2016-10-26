@@ -29,7 +29,6 @@ class UserForm extends React.Component {
   render() {
     return (
       <div>
-      hello
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -45,7 +44,7 @@ class UserForm extends React.Component {
             placeholder="password..."
             onChange={this.handleInputChange}
           />
-          <input type="submit" value={this.props.buttonText} />
+          <input type="submit" value={this.props.buttonText} className="formSubmit" />
         </form>
       </div>
     );

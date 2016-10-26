@@ -3,9 +3,11 @@ const sql = require('../config/sqlProvider').checkins;
 const Checkin = require('../models/Checkin');
 
 class CheckinDAO {
-  static create({ latitude, longitude }) {
-    return db.one(sql.create, [latitude, longitude])
-             .then((data) => new Checkin(data));
+  static create({ note, latitude, longitude, streetaddress, user_id }) {
+    return db.one(sql.create, [note, latitude, longitude, streetaddress, user_id])
+             .then((data) => {
+               new Checkin(data);
+             });
   }
   static delete(id) {
     return db.none(sql.delete, [id]);

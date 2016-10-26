@@ -2,6 +2,10 @@ import React from 'react';
 import GeolocationErrorView from './GeolocationErrorView.jsx';
 import Geocoding from "./Geocoding.jsx";
 
+const propTypes = {
+  hereiam: React.PropTypes.boolean,
+}
+
 class Geolocation extends React.Component {
   constructor() {
     super()
@@ -26,6 +30,7 @@ class Geolocation extends React.Component {
   render() {
     return (
       <div>
+
         {navigator.geolocation ?
           false :
           <GeolocationErrorView /> }
@@ -33,11 +38,14 @@ class Geolocation extends React.Component {
           <Geocoding
             longitude={this.state.longitude}
             latitude={this.state.latitude}
+            hereiam={this.props.hereiam}
           /> :
           false }
       </div>
     )
   }
 }
+
+Geolocation.propTypes = propTypes;
 
 export default Geolocation;
