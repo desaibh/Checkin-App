@@ -32,12 +32,12 @@ class ContainerView extends React.Component {
 
   }
   render() {
+    let place;
     if (this.props.photo)  {
-      let place = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${this.props.photo}&key=AIzaSyAbXXCKNXsNet0L5QZpDN7zqh0eHpOo4lk}`;
+      place = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${this.props.photo}&key=AIzaSyCWE7COEV_NU0wwIZ_Hjl7lRt60aX75CR8`;
     } else {
-      let place = `../../../dist/images/star.png`
+      place = '';
     }
-    console.log(place);
     let placeLink =`https://www.google.com/search?q=google+places+API&oq=google+places&ie=UTF-8#q=${this.props.place}&tbs=lf:1,lf_ui:2,lf_pqs:EAE&rflfq=1&rlha=0&rllag=${this.props.latitude},${this.props.longitude},1170&tbm=lcl`;
     return (
       <div>

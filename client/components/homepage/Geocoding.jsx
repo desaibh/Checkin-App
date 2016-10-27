@@ -4,7 +4,7 @@ import GeocodingView from './GeocodingView.jsx'
 import Checkin from '../checkins/Checkin.jsx'
 
 const propTypes = {
-  hereiam: React.PropTypes.string.isRequired,
+  hereiam: React.PropTypes.boolean,
   longitude: React.PropTypes.number.isRequired,
   latitude: React.PropTypes.number.isRequired,
 };
@@ -26,7 +26,6 @@ class Geocoding extends React.Component {
               this.setState ({
                 streetAddress: geocodeData[0].formatted_address,
               })
-              console.log(this.state.streetAddress)
             });
     let restaurantArray = [];
     request.get(`/restaurant/${this.props.latitude}/${this.props.longitude}`)
@@ -80,7 +79,6 @@ class Geocoding extends React.Component {
     return responseArray;
   }
   render() {
-    console.log(this.state.streetAddress);
    return(
      <div>
          {this.props.hereiam ?

@@ -8,7 +8,6 @@ const authRouter = require('./routes/authRouter');
 const authentication = require('./middleware/authentication');
 const session = require('express-session');
 
-
 const app = express();
 const GoogleGeocode = require('./GoogleGeocode');
 
@@ -24,11 +23,6 @@ app.use(session({
 }));
 
 app.use(morgan('dev'));
-
-// app.use((req, res, next) => {
-//   console.log('SOMEONE HIT A ROUTE!!!');
-//   next();
-// });
 
 app.use('/api', authentication);
 app.use('/api', authRouter);

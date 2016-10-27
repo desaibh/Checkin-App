@@ -9,6 +9,9 @@ class CheckinDAO {
                new Checkin(data);
              });
   }
+  static update({id, note}) {
+    return db.one(sql.update, [note]);
+  }
   static delete(id) {
     return db.none(sql.delete, [id]);
   }

@@ -18,6 +18,7 @@ const sqlProvider = {
     create: sql('./sql/checkin/create.sql'),
     delete: sql('./sql/checkin/delete.sql'),
     find: sql('./sql/checkin/find.sql'),
+    update: sql('./sql/checkin/update.sql'),
   },
 };
 

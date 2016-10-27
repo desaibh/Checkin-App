@@ -25,6 +25,7 @@ class App extends React.Component {
     this.signOut = this.signOut.bind(this);
     this.myCheckin = this.myCheckin.bind(this);
     this.myAccount = this.myAccount.bind(this);
+    this.homepage = this.homepage.bind(this);
   }
   componentDidMount() {
     this.updateAuth();
@@ -57,13 +58,20 @@ class App extends React.Component {
     this.closeModal();
   }
   myCheckin() {
-    this.setState({
-      hereiam: true,
-    })
+    if (this.state.hereiam == true) {
+      this.setState({ hereiam: false })
+    } else {
+      this.setState({ hereiam: true })
+    }
   }
   myAccount() {
     this.setState({
       viewAcct: true,
+    })
+  }
+  homepage() {
+    this.setState({
+      viewAcct: false,
     })
   }
   openModal(e) {
@@ -89,12 +97,10 @@ class App extends React.Component {
           <div id="registration-links">
             <button onClick={this.myAccount}>MY ACCOUNT</button>
             {this.state.viewAcct ?
-              false :
-              <button onClick={this.myCheckin}>CHECKIN</button>
-            }
+            <button onClick={this.homepage}>HOMEPAGE</button> :
+            <button onClick={this.myCheckin}>CHECKIN</button> }
             <button onClick={this.signOut} >LOG OUT</button>
           </div>
-          {/* {this.state.hereiam ? <Checkin updateAuth={this.updateAuth} /> : false } */}
         </div>
       );
     } else {

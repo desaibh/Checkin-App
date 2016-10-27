@@ -13,20 +13,23 @@ const propTypes = {
 class GeocodingView extends React.Component {
   render() {
       const restaurantLocations = this.props.restaurants.map((d, idx) => {
-        return (
-          <ContainerView
-            key = {idx}
-            icon = {d.icon}
-            place = {d.place}
-            photo = {d.photo}
-            rating = {d.rating}
-            locale = {d.locale}
-            latitude = {this.props.latitude}
-            longitude = {this.props.longitude}
-          />
-        );
+        if (d.place) {
+          return (
+            <ContainerView
+              key = {idx}
+              icon = {d.icon}
+              place = {d.place}
+              photo = {d.photo}
+              rating = {d.rating}
+              locale = {d.locale}
+              latitude = {this.props.latitude}
+              longitude = {this.props.longitude}
+            />
+          );
+        }
       });
     const todoLocations = this.props.todos.map((d, idx) => {
+      if (d.place) {
       return (
         <ContainerView
           key = {idx}
@@ -39,8 +42,10 @@ class GeocodingView extends React.Component {
           longitude = {this.props.longitude}
         />
       );
+      }
     });
     const touristLocations = this.props.touristspots.map((d, idx) => {
+      if (d.place) {
       return (
         <ContainerView
           key = {idx}
@@ -53,6 +58,7 @@ class GeocodingView extends React.Component {
           longitude = {this.props.longitude}
         />
       );
+      }
     });
     return (
       <div>

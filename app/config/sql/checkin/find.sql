@@ -1,1 +1,1 @@
-SELECT * FROM checkins WHERE $1^=$2;
+SELECT * FROM checkins WHERE $1~=$2;

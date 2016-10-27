@@ -3,7 +3,6 @@ const CheckinDAO = require('../services/CheckinDAO');
 class CheckinController {
   static getAll(req, res) {
     CheckinDAO.searchBy({ user_id: req.session.currentUser.id }).then((checkins) => {
-      console.log("controller checkins", checkins)
       res.status(200).json(checkins);
     });
   }
@@ -17,6 +16,10 @@ class CheckinController {
     };
     CheckinDAO.create(checkinData)
            .then((checkin) => res.status(200).json(checkin));
+  }
+  static update(req, res) {
+    CheckinDAO.update(req.params.id)
+           .then(() => res.status(204).end());
   }
   static delete(req, res) {
     CheckinDAO.delete(req.params.id)

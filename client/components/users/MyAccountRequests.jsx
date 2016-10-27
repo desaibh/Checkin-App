@@ -33,11 +33,13 @@ class MyAccountRequests extends React.Component {
            });
   }
   render() {
-    console.log(this.state.checkins)
-
     return(
       <div>
-      {this.state.newpageload ? <CheckinList checkins={this.state.checkins} /> : false }
+      {this.state.newpageload ?
+        <CheckinList
+          checkins={this.state.checkins}
+          getCurrentUserCheckins={this.getCurrentUserCheckins}
+        /> : false }
       </div>
     )
   }
