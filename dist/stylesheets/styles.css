@@ -120,3 +120,6 @@ button {
 h1, #checkinForm {
 	padding-top: 50px;
 }
+.shareColumn{
+float: right;
+}

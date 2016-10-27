@@ -22,14 +22,13 @@ class ContainerView extends React.Component {
     let starRating = parseInt(this.props.rating);
     let starImg = '🌟';
     let starArray = [];
-    // for (let i in starRating) {
-    //   starArray.push(starImg);
-    // }
-    // let starCount = 'Rating: ' + starImg * starRating;
-    // this.setState ({
-    //   stars: starArray.toString(),
-    // })
-
+    for (let i in starRating) {
+      starArray.push(starImg);
+    }
+    let starCount = 'Rating: ' + starImg * starRating;
+    this.setState ({
+      stars: starArray.toString(),
+    })
   }
   render() {
     let place;

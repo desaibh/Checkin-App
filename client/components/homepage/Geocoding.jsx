@@ -1,7 +1,7 @@
 import React from 'react';
 import request from 'superagent';
-import GeocodingView from './GeocodingView.jsx'
-import Checkin from '../checkins/Checkin.jsx'
+import GeocodingView from './GeocodingView.jsx';
+import Checkin from '../checkins/Checkin.jsx';
 
 const propTypes = {
   hereiam: React.PropTypes.boolean,
@@ -79,10 +79,11 @@ class Geocoding extends React.Component {
     return responseArray;
   }
   render() {
-   return(
+
+   return (
      <div>
-         {this.props.hereiam ?
-          <Checkin
+        {this.props.hereiam ?
+        <Checkin
            longitude={this.props.longitude}
            latitude={this.props.latitude}
            streetAddress={this.state.streetAddress}

@@ -3,7 +3,7 @@ import GeolocationErrorView from './GeolocationErrorView.jsx';
 import Geocoding from "./Geocoding.jsx";
 
 const propTypes = {
-  hereiam: React.PropTypes.boolean,
+  hereiam: React.PropTypes.boolean
 }
 
 class Geolocation extends React.Component {
