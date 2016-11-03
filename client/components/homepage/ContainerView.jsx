@@ -10,7 +10,6 @@ const propTypes = {
   longitude: React.PropTypes.number.isRequired,
   latitude: React.PropTypes.number.isRequired,
 };
-
 class ContainerView extends React.Component {
   constructor() {
     super();
@@ -30,10 +29,14 @@ class ContainerView extends React.Component {
       stars: starArray.toString(),
     })
   }
+
+  componentDidMount() {
+  }
+
   render() {
     let place;
     if (this.props.photo)  {
-      place = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${this.props.photo}&key=AIzaSyCWE7COEV_NU0wwIZ_Hjl7lRt60aX75CR8`;
+      place = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${this.props.photo}&key=AIzaSyC1Rz9ppcjFGa5_Omb83nvxt_lPvK4ob3U`;
     } else {
       place = '';
     }

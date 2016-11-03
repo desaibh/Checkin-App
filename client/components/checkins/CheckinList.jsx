@@ -15,19 +15,19 @@ class CheckinList extends React.Component {
     this.getGeolocations = this.getGeolocations.bind(this);
   }
   componentWillMount(){
-    this.render();
   }
-  updateNote(id, note) {
-    request.patch(`api/checkins/${this.props.id}`)
-             .send({ id, note })
+  updateNote(id, note, latitude, longitude, streetaddress, user_id) {
+    request.put(`api/checkins/${id}`)
+             .send({ id, note, latitude, longitude, streetaddress, user_id })
              .then(() => {
+               this.props.getCurrentUserCheckins();
              });
   }
   deleteCheckin(id) {
-    // request.del(`api/checkins/${id}`)
-    //        .then(() => {
-    //          this.props.getCurrentUserCheckins();
-    //        });
+    request.del(`api/checkins/${id}`)
+           .then(() => {
+             this.props.getCurrentUserCheckins();
+           });
   }
   getGeolocations() {
 
@@ -40,18 +40,19 @@ class CheckinList extends React.Component {
           Save a location. Plan future visits.
         </h2>
         {this.props.checkins.map((checkin) =>
-            <CheckinView
-                key = {checkin.key}
-                id = {checkin.id}
-                note = {checkin.note}
-                address = {checkin.streetaddress}
-                latitude = {checkin.latitude}
-                longitude = {checkin.longitude}
-                updateNote = {this.updateNote}
-                deleteCheckin = {this.deleteCheckin}
-                getGeolocations = {this.getGeolocations}
-            />
-          )}
+          <CheckinView
+              key = {checkin.key}
+              id = {checkin.id}
+              note = {checkin.note}
+              address = {checkin.streetaddress}
+              latitude = {checkin.latitude}
+              longitude = {checkin.longitude}
+              uid = {checkin.user_id}
+              updateNote = {this.updateNote}
+              deleteCheckin = {this.deleteCheckin}
+              getGeolocations = {this.getGeolocations}
+          />
+        )}
       </div>
     );
   }

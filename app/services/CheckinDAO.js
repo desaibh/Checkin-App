@@ -6,14 +6,16 @@ class CheckinDAO {
   static create({ note, latitude, longitude, streetaddress, user_id }) {
     return db.one(sql.create, [note, latitude, longitude, streetaddress, user_id])
              .then((data) => {
+               console.log(data);
                new Checkin(data);
              });
   }
-  static update({id, note}) {
-    return db.one(sql.update, [note]);
+  // static getAll({ checkins })
+  static update({ id, note, latitude, longitude, streetaddress, user_id }) {
+    return db.one(sql.update, [id, note]);
   }
   static delete(id) {
-    return db.none(sql.delete, [id]);
+    return db.one(sql.delete, [id]);
   }
   static searchBy(keyValue) {
     const key = Object.keys(keyValue)[0];

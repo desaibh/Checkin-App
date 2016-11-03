@@ -22,7 +22,7 @@ class MyAccountRequests extends React.Component {
       this.getCurrentUserCheckins();
     }
   }
-  getCurrentUserCheckins() {
+  getCurrentUserCheckins(e) {
     request.get('/api/checkins')
            .then((response) => {
              const checkins = response.body;

@@ -1,1 +1,1 @@
-DELETE FROM checkins WHERE id=$1;
+DELETE FROM checkins WHERE id=^$1;

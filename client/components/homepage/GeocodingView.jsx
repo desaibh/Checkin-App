@@ -81,28 +81,33 @@ class GeocodingView extends React.Component {
     let newTitle = "Checking In";
     return (
       <div>
-        <h1><img src="https://desaibh.github.io/checkin-app/dist/images/drop.png" />YOU ARE HERE &mdash; {this.props.street}</h1>
-        <div className="shareColumn">
-          <FacebookShareButton url={newUrl} title={newTitle}>
-            <FacebookIcon size={48} round={true} />
-          </FacebookShareButton>
-          <TwitterShareButton url={newUrl} title={newTitle}>
-            <TwitterIcon size={48} round={true} />
-          </TwitterShareButton>
-          <GooglePlusShareButton url={newUrl} >
-            <GooglePlusIcon size={48} round={true} />
-          </GooglePlusShareButton>
-          <LinkedinShareButton url={newUrl} title={newTitle} windowWidth={750} windowHeight={600}>
-            <LinkedinIcon  size={48} round={true} />
-          </LinkedinShareButton>
-          <PinterestShareButton url={newUrl} title={newTitle}>
-            <PinterestIcon  size={48} round={true} />
-          </PinterestShareButton>
-          <VKShareButton url={newUrl} title={newTitle}>
-            <VKIcon  size={48} round={true} />
-          </VKShareButton>
+        <h1><img src="https://desaibh.github.io/Checkin-App/dist/images/drop.png" className="drop" />YOU ARE HERE <br /> {this.props.street}</h1>
+        <div className="clearboth"></div>
+        <div className="column">
+          <div className="shareColumn">
+            <FacebookShareButton url={newUrl} title={newTitle}>
+              <FacebookIcon size={48} round={true} />
+            </FacebookShareButton>
+            <TwitterShareButton url={newUrl} title={newTitle}>
+              <TwitterIcon size={48} round={true} />
+            </TwitterShareButton>
+            <GooglePlusShareButton url={newUrl} >
+              <GooglePlusIcon size={48} round={true} />
+            </GooglePlusShareButton>
+            <LinkedinShareButton url={newUrl} title={newTitle} windowWidth={750} windowHeight={600}>
+              <LinkedinIcon  size={48} round={true} />
+            </LinkedinShareButton>
+            <PinterestShareButton url={newUrl} title={newTitle}>
+              <PinterestIcon  size={48} round={true} />
+            </PinterestShareButton>
+            <VKShareButton url={newUrl} title={newTitle}>
+              <VKIcon size={48} round={true} />
+            </VKShareButton>
+          </div>
+          <div className="shareColumnToo">
+            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.props.latitude},${this.props.longitude}&zoom=17&size=600x300&sensor=false&style=feature:road|color:0xffffff`} width="94%" />
+          </div>
         </div>
-        <p><img src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.props.latitude},${this.props.longitude}&zoom=17&size=600x300&sensor=false&style=feature:road|color:0xffffff`} width="94%" /></p>
         <h2>Things to do in your area</h2>
         <div id = "lightboxFrame">
           <div className="restaurantLocations">

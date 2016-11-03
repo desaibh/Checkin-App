@@ -2,6 +2,8 @@ body {
 	width: 100%;
 	margin: 0px;
 	color: #666699;
+	font-family: 'Taviraj', serif;
+	line-height: 2.5em;
 }
 .modal {
 	overlay : {
@@ -26,6 +28,9 @@ body {
 		outline                    : 'none',
 		padding                    : '20px'
 	},
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 div #lightboxFrame {
     column-count:             5;
@@ -56,6 +61,9 @@ div .lightbox {
 	border: 1px #ccc solid;
 	float: left;
 	display: block;
+}
+.lightbox p {
+	line-height: 1em;
 }
 div .lightbox img {
 	float: left;
@@ -121,5 +129,126 @@ h1, #checkinForm {
 	padding-top: 50px;
 }
 .shareColumn{
-float: right;
+position: absolute;
+right: 1px;
+}
+.drop {
+	margin-top: 10px;
+	float: left;
+}
+.clearboth {
+	clear: both
+}
+@media (max-width: 1080px) {
+	div #lightboxFrame {
+	    column-count:             5;
+	        -moz-column-count:    5;
+	        -ms-column-count:     5;
+	        -o-column-count:      5;
+	        -webkit-column-count: 5;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 100000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 870px) {
+	div #lightboxFrame {
+	    column-count:             4;
+	        -moz-column-count:    4;
+	        -ms-column-count:     4;
+	        -o-column-count:      4;
+	        -webkit-column-count: 4;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 200000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 660px) {
+	div #lightboxFrame {
+	    column-count:             3;
+	        -moz-column-count:    3;
+	        -ms-column-count:     3;
+	        -o-column-count:      3;
+	        -webkit-column-count: 3;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+			overflow: hidden;
+	}
+}
+@media (max-width: 450px) {
+	div #lightboxFrame {
+	    column-count:             2;
+	        -moz-column-count:    2;
+	        -ms-column-count:     2;
+	        -o-column-count:      2;
+	        -webkit-column-count: 2;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+	}
+	.shareColumn {
+		display: inline-block;
+		opacity: .5;
+	}
+}
+@media (max-width: 240px) {
+	div #lightboxFrame {
+	    column-count:             1;
+	        -moz-column-count:    1;
+	        -ms-column-count:     1;
+	        -o-column-count:      1;
+	        -webkit-column-count: 1;
+	    column-fill:              balance;
+	        -moz-column-fill:     balance;
+	        -ms-column-fill:      balance;
+	        -o-column-fill:       balance;
+	        -webkit-column-fill:  balance;
+	    column-gap:               10px;
+	        -moz-column-gap:      10px;
+	        -ms-column-gap:       10px;
+	        -o-column-gap:        10px;
+	        -webkit-column-gap:   10px;
+	    max-width: 1080px;
+			max-height: 400000px;
+	}
+
 }
