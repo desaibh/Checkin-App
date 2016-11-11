@@ -2,6 +2,7 @@ import React from 'react';
 import request from 'superagent';
 import CheckinView from './CheckinView.jsx';
 
+
 const propTypes = {
   checkins: React.PropTypes.array,
   getCurrentUserCheckins: React.PropTypes.func,
@@ -13,7 +14,8 @@ class CheckinList extends React.Component {
     this.updateNote = this.updateNote.bind(this);
     this.deleteCheckin = this.deleteCheckin.bind(this);
   }
-  componentWillMount(){
+  componentDidMount(){
+    this.setState({ checkin: false })
   }
   updateNote(id, note) {
     request.put(`api/checkins/${id}`)
