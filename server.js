@@ -1,6 +1,5 @@
-if (!process.env.PORT) {
-  require('dotenv').config();
-}
+require('dotenv').config();
+
 process.env.ENV = process.env.ENV || 'dev';
 
 const path = require('path');
