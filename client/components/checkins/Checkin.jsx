@@ -17,7 +17,6 @@ class Checkin extends React.Component {
       checkins: []
     }
     this.sendCheckin = this.sendCheckin.bind(this);
-
   }
   sendCheckin(note) {
     let body = [];
@@ -26,6 +25,7 @@ class Checkin extends React.Component {
            .send({body})
            .then(() => { });
   }
+
   render() {
     return(
       <div>

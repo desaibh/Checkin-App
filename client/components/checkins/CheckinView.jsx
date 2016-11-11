@@ -1,4 +1,5 @@
 import React from 'react';
+import Checkin from '../homepage/Geocoding.jsx';
 
 const propTypes = {
   key: React.PropTypes.number,
@@ -16,23 +17,26 @@ const propTypes = {
 class CheckinView extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      checkin: false
+    }
     this.handleEditOfNote = this.handleEditOfNote.bind(this);
+    this.getGeolocations = this.getGeolocations.bind(this);
   }
   handleEditOfNote(e) {
     e.preventDefault();
     const newNote = e.target.value;
-    this.props.updateNote(this.props.id, newNote, this.props.latitude, this.props.longitude, this.props.address, this.props.uid)
+    this.props.updateNote(this.props.id, newNote)
+  }
+  getGeolocations() {
+    this.setState({checkin: true});
   }
   render() {
     return (
       <div>
-        <h1>Saved Destination</h1>
-        <p><b>Address:</b> {this.props.address}</p>
+        <h3><b>Address:</b> {this.props.address}</h3>
         <input type="text" defaultValue={this.props.note} onBlur={this.handleEditOfNote}  />
-        <button onClick={this.props.deleteCheckin(this.props.id)}>Delete Checkin</button>
-        <button onClick={this.props.getGeolocations()}>See What You Can Do Here</button>
-        {this.props.id}
-        {console.log(this.props.id)}
+        <button onClick={this.getGeolocations()}>See What You Can Do Here</button>
       </div>
     )
   }

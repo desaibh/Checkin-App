@@ -11,11 +11,23 @@ class CheckinDAO {
              });
   }
   // static getAll({ checkins })
-  static update({ id, note, latitude, longitude, streetaddress, user_id }) {
-    return db.one(sql.update, [id, note]);
+  static update({ note, id }) {
+    return db.none(sql.update, [note, id])
+              .then((data) => {
+                  console.log(data); // printing successful transaction output;
+              })
+              .catch((error) => {
+                  console.log(error); // printing the error;
+              });
   }
-  static delete(id) {
-    return db.one(sql.delete, [id]);
+  static delete({ id }) {
+    return db.none(sql.delete, [id])
+              .then((data) => {
+                  console.log(data); // printing successful transaction output;
+              })
+              .catch((error) => {
+                  console.log(error); // printing the error;
+              });;
   }
   static searchBy(keyValue) {
     const key = Object.keys(keyValue)[0];

@@ -56,6 +56,7 @@ class Geocoding extends React.Component {
      todoDoors: todoArray,
      touristspotDoors: touristArray,
     })
+    console.log(this.props.latitude, this.props.longitude, this.state.restaurantDoors, this.state.todoDoors, this.state.touristspotDoors)
   }
   dataMapper(res)  {
     let responseArray = [];
@@ -79,7 +80,6 @@ class Geocoding extends React.Component {
     return responseArray;
   }
   render() {
-
    return (
      <div>
         {this.props.hereiam ?
@@ -91,7 +91,7 @@ class Geocoding extends React.Component {
          <GeocodingView
           latitude = {this.props.latitude}
           longitude = {this.props.longitude}
-          street = {this.state.streetAddress}
+          streetAddress = {this.state.streetAddress}
           restaurants = {this.state.restaurantDoors}
           todos = {this.state.todoDoors}
           touristspots = {this.state.touristspotDoors}

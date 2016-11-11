@@ -20,17 +20,18 @@ class Geolocation extends React.Component {
   }
   geoFindMe() {
     navigator.geolocation.getCurrentPosition((position) => {
+      map: this.map,
       this.setState({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
         nextStep: true,
       });
+      animation: google.maps.Animation.drop
     });
   };
   render() {
     return (
       <div>
-
         {navigator.geolocation ?
           false :
           <GeolocationErrorView /> }

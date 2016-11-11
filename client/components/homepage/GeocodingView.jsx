@@ -1,16 +1,16 @@
 import React from 'react';
 import ContainerView from './ContainerView.jsx';
+import Map from './Map.jsx';
 import { ShareButtons, ShareCounts, generateShareIcon } from 'react-share';
 
 const propTypes = {
   longitude: React.PropTypes.number.isRequired,
   latitude: React.PropTypes.number.isRequired,
-  street: React.PropTypes.string.isRequired,
+  streetAddress: React.PropTypes.string.isRequired,
   restaurants: React.PropTypes.array.isRequired,
   todos: React.PropTypes.array.isRequired,
   touristspots: React.PropTypes.array.isRequired,
 };
-
 const {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -81,7 +81,11 @@ class GeocodingView extends React.Component {
     let newTitle = "Checking In";
     return (
       <div>
-        <h1><img src="https://desaibh.github.io/Checkin-App/dist/images/drop.png" className="drop" />YOU ARE HERE <br /> {this.props.street}</h1>
+      <h1>
+        <img src="https://desaibh.github.io/Checkin-App/dist/images/drop.png" className="drop" />
+        YOU ARE HERE <br />
+        {this.props.streetAddress}
+      </h1>
         <div className="clearboth"></div>
         <div className="column">
           <div className="shareColumn">
@@ -105,7 +109,7 @@ class GeocodingView extends React.Component {
             </VKShareButton>
           </div>
           <div className="shareColumnToo">
-            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${this.props.latitude},${this.props.longitude}&zoom=17&size=600x300&sensor=false&style=feature:road|color:0xffffff`} width="94%" />
+            <Map latitude={this.props.latitude} longitude={this.props.longitude} street={this.props.streetAddress} />
           </div>
         </div>
         <h2>Things to do in your area</h2>

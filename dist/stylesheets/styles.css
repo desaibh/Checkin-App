@@ -128,9 +128,15 @@ button {
 h1, #checkinForm {
 	padding-top: 50px;
 }
+h3 {
+	padding-top: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-weight: bold;
+	font-size: 1.4em;
+}
 .shareColumn{
-position: absolute;
-right: 1px;
+	float: right;
 }
 .drop {
 	margin-top: 10px;

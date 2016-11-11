@@ -12,26 +12,20 @@ class CheckinList extends React.Component {
     super(props);
     this.updateNote = this.updateNote.bind(this);
     this.deleteCheckin = this.deleteCheckin.bind(this);
-    this.getGeolocations = this.getGeolocations.bind(this);
   }
   componentWillMount(){
   }
-  updateNote(id, note, latitude, longitude, streetaddress, user_id) {
+  updateNote(id, note) {
     request.put(`api/checkins/${id}`)
-             .send({ id, note, latitude, longitude, streetaddress, user_id })
+             .send({ id, note })
              .then(() => {
                this.props.getCurrentUserCheckins();
              });
   }
   deleteCheckin(id) {
-    request.del(`api/checkins/${id}`)
-           .then(() => {
-             this.props.getCurrentUserCheckins();
-           });
+    request.del(`api/checkins/delete/${id}`)
   }
-  getGeolocations() {
 
-  }
   render() {
     return (
       <div>
@@ -50,7 +44,6 @@ class CheckinList extends React.Component {
               uid = {checkin.user_id}
               updateNote = {this.updateNote}
               deleteCheckin = {this.deleteCheckin}
-              getGeolocations = {this.getGeolocations}
           />
         )}
       </div>

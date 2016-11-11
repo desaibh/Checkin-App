@@ -1,1 +1,1 @@
-UPDATE checkins SET note=^$2 WHERE id=$1 RETURNING *;
+UPDATE checkins SET note=$1 WHERE id=$2;
