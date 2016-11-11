@@ -1,4 +1,4 @@
-If (!process.env.PORT) (
+If (!process.env.PORT) {
   require('dotenv').config();
 }
 
