@@ -19,7 +19,7 @@ class GoogleGeocode {
                        })
   }
   getTouristSpot(latitude, longitude) {
-    let geoSpotURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=300&type=amusement_park|aquarium|art_gallery|campground|cemetery|church|city_hall|embassy|hindu_temple|mosque|museum|synagogue|zoo&keyword=cruise&key=${process.env.PLACEKEY}`
+    let geoSpotURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=300&type=amusement_park|aquarium|art_gallery|campground|cemetery|church|city_hall|embassy|hindu_temple|mosque|museum|synagogue|zoo&key=${process.env.PLACEKEY}`
     return superRequest.get(geoSpotURL)
                        .then((geocodeResponse) => {
                          place = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=${this.props.photo}&key=${process.env.PLACEKEY}`;
