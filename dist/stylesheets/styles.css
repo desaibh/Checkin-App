@@ -33,26 +33,12 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 div #lightboxFrame {
-    column-count:             5;
-        -moz-column-count:    5;
-        -ms-column-count:     5;
-        -o-column-count:      5;
-        -webkit-column-count: 5;
-    column-fill:              balance;
-        -moz-column-fill:     balance;
-        -ms-column-fill:      balance;
-        -o-column-fill:       balance;
-        -webkit-column-fill:  balance;
-    column-gap:               10px;
-        -moz-column-gap:      10px;
-        -ms-column-gap:       10px;
-        -o-column-gap:        10px;
-        -webkit-column-gap:   10px;
     max-width: 1080px;
-		min-height: 1080px;
+		min-height: 550px;
+		display: flex;
+		flex-direction: column
 		overflow-x: scroll;
 		overflow-y: scroll;
-		display: block;
 }
 div .lightbox {
 	max-width: 210px;
@@ -61,6 +47,7 @@ div .lightbox {
 	border: 1px #ccc solid;
 	float: left;
 	display: block;
+	flex: 1;
 }
 .lightbox p {
 	line-height: 1em;
@@ -145,7 +132,7 @@ h3 {
 .clearboth {
 	clear: both
 }
-@media (max-width: 1080px) {
+/*@media (max-width: 1080px) {
 	div #lightboxFrame {
 	    column-count:             5;
 	        -moz-column-count:    5;
@@ -166,8 +153,8 @@ h3 {
 			max-height: 100000px;
 			overflow: hidden;
 	}
-}
-@media (max-width: 870px) {
+}*/
+/*@media (max-width: 870px) {
 	div #lightboxFrame {
 	    column-count:             4;
 	        -moz-column-count:    4;
@@ -257,4 +244,4 @@ h3 {
 			max-height: 400000px;
 	}
 
-}
+}*/
