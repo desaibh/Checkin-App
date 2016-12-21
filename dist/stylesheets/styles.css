@@ -122,8 +122,19 @@ h3 {
 	font-weight: bold;
 	font-size: 1.4em;
 }
+div.column {
+	display: flex;
+}
 .shareColumn{
-	float: right;
+	flex: 23;
+	padding: 0px;
+	margin-top: 0px;
+}
+.shareColumnToo {
+	flex: 1;
+	padding-right: 15px;
+	margin-top: 10px;
+	margin-top: 0px;
 }
 .drop {
 	margin-top: 10px;

@@ -88,6 +88,9 @@ class GeocodingView extends React.Component {
       </h1>
         <div className="clearboth"></div>
         <div className="column">
+          <div className="shareColumnToo">
+            <Map latitude={this.props.latitude} longitude={this.props.longitude} street={this.props.streetAddress} />
+          </div>
           <div className="shareColumn">
             <FacebookShareButton url={newUrl} title={newTitle}>
               <FacebookIcon size={48} round={true} />
@@ -108,10 +111,9 @@ class GeocodingView extends React.Component {
               <VKIcon size={48} round={true} />
             </VKShareButton>
           </div>
-          <div className="shareColumnToo">
-            <Map latitude={this.props.latitude} longitude={this.props.longitude} street={this.props.streetAddress} />
-          </div>
         </div>
+        <div className="clearboth"></div>
+
         <h2>Things to do in your area</h2>
         <div id = "lightboxFrame">
           <div className="restaurantLocations">
